@@ -35,7 +35,7 @@ for index, folder in enumerate(sorted(os.listdir(directory))):
 
 array = array[:len(array) - 2] + "\n};\n"
 
-f = open(os.path.join(maindir, "arduino/moody/faces.h"), "w")
+f = open(os.path.join(maindir, "../moody-arduino/moody/faces.h"), "w")
 f.write(array)
 f.close()
 
