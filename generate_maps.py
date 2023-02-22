@@ -7,8 +7,7 @@ maindir = os.getcwd()
 imagesdir = os.path.join(maindir, "images")
 directory = os.fsencode(imagesdir)
 
-# Initialize array string
-array = "static const byte allFaces[][2][64] PROGMEM = {\n"
+output = "static const byte allFaces[][2][64] PROGMEM = {\n"
 
 # Iterate over subdirectories
 for index, folder in enumerate(sorted(os.listdir(directory))):
@@ -32,7 +31,7 @@ for index, folder in enumerate(sorted(os.listdir(directory))):
                 for x in range(32):
                     data += str(int(px[x, y][0] == 0))
 
-            # Format pixel values into binary format for current face
+            # Format pixel values into binary format
             face = ""
             octets = wrap(data, 8)
             for i in range(64):
@@ -43,12 +42,12 @@ for index, folder in enumerate(sorted(os.listdir(directory))):
             faces += "    {" + face + "},\n"
         faces = faces[:-2]
 
-        # Add string of faces for current directory to array string
-        array += "  {\n" + faces + "\n  },\n"
-array = array[:-2] + "\n};\n"
+        # Add string of faces for current directory to output string
+        output += "  {\n" + faces + "\n  },\n"
+output = output[:-2] + "\n};\n"
 
-# Write array string to faces.h file
+# Write output string to faces.h file
 with open(os.path.join(maindir, "../moody-arduino/moody/faces.h"), "w") as f:
-    f.write(array)
+    f.write(output)
 
-print("done")
+print("faces.h successfully generated")
