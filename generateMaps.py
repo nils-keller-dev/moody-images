@@ -15,22 +15,24 @@ for index, folder in enumerate(sorted(os.listdir(directory))):
     if os.path.isdir(fullfolder):
         faces = ""
         for file in sorted(os.listdir(fullfolder)):
-            im = Image.open(os.path.join(fullfolder, file))
-            px = im.load()
+            filepath = os.path.join(fullfolder, file)
+            if os.path.splitext(filepath)[1].lower() in ('.jpg', '.jpeg', '.png', '.bmp'):
+                im = Image.open(filepath)
+                px = im.load()
 
-            data = ""
+                data = ""
 
-            for y in range(16):
-                for x in range(32):
-                    data += str(int(px[x, y][0] == 0))
+                for y in range(16):
+                    for x in range(32):
+                        data += str(int(px[x, y][0] == 0))
 
-            face = ""
-            octets = wrap(data, 8)
-            for i in range(64):
-                face += "0b" + octets[i] + ", "
+                face = ""
+                octets = wrap(data, 8)
+                for i in range(64):
+                    face += "0b" + octets[i] + ", "
 
-            face = face[:len(face) - 2]
-            faces += "    {" + face + "},\n"
+                face = face[:len(face) - 2]
+                faces += "    {" + face + "},\n"
         faces = faces[:len(faces) - 2]
         array += "  {\n" + faces + "\n  },\n"
 
