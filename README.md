@@ -17,9 +17,9 @@ If you would like to create new facial expressions, keep in mind these correct d
 Furthermore the images should only be black and white, but note that the colors will be inverted when the Arduino board displays them.  
 To help creating or editing facial expressions, you can use [this codepen I made](https://codepen.io/nilskeller/full/LYdaBVM).
 
-Be aware that you cannot remove the `hot`, `cold` or `shock` facial expressions, because they are hard-coded into the Arduino project. You would firstly have to that code too.
+Be aware that you cannot remove the `hot`, `cold` or `shock` facial expressions, because they are hard-coded into the Arduino project. You would firstly have to edit that code too.
 
-If you changed the images in any way and want them to be used by the Arduino board, you need to generate a new `faces.h` file by running the [python script](https://github.com/tsomic/moody-images/blob/36e5a57a68c0a09ebdca15dc0849f9e1c6ae8dc2/generate_maps.py). The file will automatically overwrite the current one in the folder of the Arduino project.
+If you changed the images in any way (added, removed, edited) and want them to be updated to be used by the Arduino board, you need to regenerate the `faces.h` file by running the [python script](https://github.com/tsomic/moody-images/blob/36e5a57a68c0a09ebdca15dc0849f9e1c6ae8dc2/generate_maps.py). The file will automatically overwrite the current one in the folder of the Arduino project.
 
 <br/>
 
