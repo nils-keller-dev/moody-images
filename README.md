@@ -10,16 +10,14 @@ You should not clone this repository on its own but as part of the [`main reposi
 
 This project contains an `images` folder with a subdirectory for every facial expression. These subdirectories are named accordingly and must contain exactly two images each - the two animation frames of each facial expression.
 
-The name of the image files doesn't matter, but note that only `JPEG`, `PNG` and `BMP` files are being processed.  
-Also all images have to be 32x16 pixels. They will be upscaled on the Arduino board to fit the whole 128x64 display.
+To change these images (adding, removing, editing) I suggest using the [`moody-mapper`](https://github.com/tsomic/moody-mapper), as every image has to be converted to binary data for the arduino to use. The [`moody-mapper`](https://github.com/tsomic/moody-mapper) does this automatically and also includes an image editor specifically for facial expressions.
 
-If you would like to create new facial expressions, keep in mind these correct dimensions.  
-Furthermore the images should only be black and white, but note that the colors will be inverted when the Arduino board displays them.  
-To help creating or editing facial expressions, you can use [this codepen I made](https://codepen.io/nilskeller/full/LYdaBVM).
+You can add images here by yourself, but it is not recommended.  
+All images have to be 32x16 pixels. They will be upscaled on the Arduino board to fit the whole 128x64 display.
+Furthermore the images should be in black and white.
+Every other color gets converted to be black or white, but note that the colors will be inverted when the Arduino board displays them.  
 
 Be aware that you cannot remove the `hot`, `cold` or `shock` facial expressions, because they are hard-coded into the Arduino project. You would firstly have to edit that code too.
-
-If you changed the images in any way (added, removed, edited) and want them to be updated to be used by the Arduino board, you need to regenerate the `faces.h` file by running the [python script](https://github.com/tsomic/moody-images/blob/36e5a57a68c0a09ebdca15dc0849f9e1c6ae8dc2/generate_maps.py). The file will automatically overwrite the current one in the folder of the Arduino project.
 
 <br/>
 
