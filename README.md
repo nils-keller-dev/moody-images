@@ -2,8 +2,6 @@
 
 Moody-Images is the images component of the [`Moody`](https://github.com/tsomic/moody) project. It contains all of the facial expressions as `.png` files and a python script to convert them to the `faces.h` file used by [`moody-arduino`](https://github.com/tsomic/moody-arduino).
 
-<br/>
-
 ## About
 
 You should not clone this repository on its own but as part of the [`main repository`](https://github.com/tsomic/moody) (go there for details).
@@ -19,13 +17,9 @@ Every other color gets converted to be black or white, but note that the colors 
 
 Be aware that you cannot remove the `hot`, `cold` or `shock` facial expressions, because they are hard-coded into the Arduino project. You would firstly have to edit [that code](https://github.com/tsomic/moody-arduino/blob/main/moody/moody.ino) too.
 
-<br/>
-
 ## Contributing
 
 Contributions are welcome! If you have ideas for new features, find any bugs, or would like to make improvements, please open an issue or submit a pull request.
-
-<br/>
 
 ## License
 
